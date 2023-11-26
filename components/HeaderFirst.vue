@@ -1,0 +1,42 @@
+<template>
+  <header id="nav-menu" class="bg-primary top-0 left-0 w-full flex z-10 fixed items-center justify-center">
+    <div class="container">
+    <div class="flex items-center py-2 w-full justify-between md:py-3">
+      <div class="mx-2">
+        <h1 href="#home" class="font-semibold text-white text-2xl md:text-3xl">PixelGear</h1>
+      </div>
+        <div class="basis-2/3">
+          <form action="">
+          <input v-model="inputFilterQuery" type="text" placeholder="Search" class="w-full rounded-md p-0.5 focus:outline-none focus:ring-2 focus:ring-paletorange md:p-2">
+          </form>
+        </div>
+        <div class="flex">
+          <button id="buttonCart" name="buttonCart" class="w-7 pt-2 mx-2 md:w-10 hover:opacity-80" type="button" @click="buttonCart">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" class="fill-white w-full" viewBox="0 0 32 40" style="enable-background:new 0 0 32 32;" xml:space="preserve"><g><path d="M25,32c-1.654,0-3-1.346-3-3s1.346-3,3-3s3,1.346,3,3S26.654,32,25,32z M25,28c-0.552,0-1,0.448-1,1s0.448,1,1,1   s1-0.448,1-1S25.552,28,25,28z"/><path d="M11,32c-1.654,0-3-1.346-3-3s1.346-3,3-3s3,1.346,3,3S12.654,32,11,32z M11,28c-0.551,0-1,0.448-1,1s0.449,1,1,1   s1-0.448,1-1S11.551,28,11,28z"/><path d="M10.23,24c-1.188,0-2.22-0.846-2.452-2.01L4.261,4.402C4.214,4.169,4.008,4,3.77,4H1C0.448,4,0,3.552,0,3s0.448-1,1-1h2.77   c1.188,0,2.219,0.845,2.452,2.01L7.02,8h22.479c0.759,0,1.467,0.338,1.944,0.928c0.477,0.59,0.659,1.354,0.5,2.097l-1.753,9.083   c-0.208,1.076-1.079,1.886-2.166,2.015l-17.689,1.871C10.301,23.998,10.266,24,10.23,24z M7.42,10l2.319,11.598   c0.044,0.221,0.231,0.384,0.453,0.4l17.61-1.862c0.207-0.025,0.383-0.189,0.426-0.407l1.757-9.103   c0.047-0.224-0.04-0.371-0.097-0.44C29.832,10.116,29.707,10,29.499,10H7.42z"/><path d="M25,28H10c-1.654,0-3-1.346-3-3s1.346-3,3-3c0.552,0,1,0.447,1,1s-0.448,1-1,1c-0.551,0-1,0.448-1,1s0.449,1,1,1h15   c0.553,0,1,0.447,1,1S25.553,28,25,28z"/></g><text x="0" y="47" fill="#fff" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by ✦ Shmidt Sergey ✦</text><text x="0" y="52" fill="#fff" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+          </button>
+        </div>
+    </div>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      inputFilterQuery: ''
+    }
+  },
+  watch: {
+    inputFilterQuery(newVal) {
+      this.$emit("hasilInput", newVal);
+    }
+  },
+  methods: {
+    buttonCart() {
+      const listCart = document.querySelector('#listCart');
+      listCart.classList.toggle('hidden')
+    },
+  }
+}
+</script>
